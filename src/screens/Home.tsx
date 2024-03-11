@@ -57,7 +57,8 @@ export default function App({navigation, route}): React.JSX.Element {
 
   const handleAddTodo = () => {
     dispatch(addTodo(task, priority, user));
-    hideModal();
+    console.log(todoList);
+    // hideModal();
   };
 
   const [visible, setVisible] = useState(false);

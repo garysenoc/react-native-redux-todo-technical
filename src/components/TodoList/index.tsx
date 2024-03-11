@@ -34,7 +34,11 @@ const TodoList: React.FC<TodoListProps> = ({
   setTodoId,
 }): React.ReactElement => {
   const priorityText =
-    priority === 3 ? 'High' : priority === 2 ? 'Medium' : 'Low';
+    parseInt(priority, 10) === 3
+      ? 'High'
+      : parseInt(priority, 10) === 2
+      ? 'Medium'
+      : 'Low';
   const todoList = useSelector((state: any) => state.todos);
   const dispatch = useDispatch();
 
