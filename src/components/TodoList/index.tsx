@@ -3,7 +3,6 @@ import {Button, Text, Card, TextInput} from 'react-native-paper';
 import {View} from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
 import {addComment, deleteComment, updateComment} from '../../../redux/action';
-import {RootState} from '../../../redux/reducers'; // Assuming RootState is defined
 
 interface Comment {
   id: string;
@@ -36,7 +35,7 @@ const TodoList: React.FC<TodoListProps> = ({
 }): React.ReactElement => {
   const priorityText =
     priority === 3 ? 'High' : priority === 2 ? 'Medium' : 'Low';
-  const todoList = useSelector((state: RootState) => state.todos);
+  const todoList = useSelector((state: any) => state.todos);
   const dispatch = useDispatch();
 
   const [commentVal, setCommentVal] = useState<string>('');

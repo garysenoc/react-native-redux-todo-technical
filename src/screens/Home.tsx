@@ -208,9 +208,7 @@ export default function App({navigation, route}): React.JSX.Element {
       </View>
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle.backgroundColor}
-        // style={backgroundStyle}
-      >
+        style={backgroundStyle.backgroundColor}>
         <View>
           {todoList?.map((todo: any) => (
             <View style={{justifyContent: 'center', alignItems: 'center'}}>
@@ -253,9 +251,7 @@ export default function App({navigation, route}): React.JSX.Element {
                   <Button
                     mode="contained"
                     style={{marginTop: '5%', width: '80%'}}
-                    onPress={hideUpdateModal}
-                    // onPress={hideModal}
-                  >
+                    onPress={hideUpdateModal}>
                     Cancel
                   </Button>
                 </Modal>
@@ -282,28 +278,3 @@ export default function App({navigation, route}): React.JSX.Element {
     </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  fab: {
-    position: 'absolute',
-    margin: 16,
-    right: 0,
-    bottom: 0,
-  },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});

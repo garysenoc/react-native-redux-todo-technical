@@ -32,12 +32,11 @@ const todoReducer = (state = initialState, action: any) => {
     case DELETE_ALL_TODO: {
       return {
         ...state,
-        todos: [], // Emptying the todos array
+        todos: [],
       };
     }
     case DELETE_TODO: {
       const {id} = action.payload;
-      // Filter out the todo with the specified id
       const updatedTodos = state.todos.filter((todo: any) => todo.id !== id);
       return {
         ...state,
@@ -47,13 +46,12 @@ const todoReducer = (state = initialState, action: any) => {
 
     case UPDATE_COMPLETE: {
       const {id} = action.payload;
-      // Map over todos and update the complete property of the todo with the specified id
+
       const updatedTodos = state.todos.map((todo: any) => {
         if (todo.id === id) {
-          // Toggle the complete property
           return {...todo, complete: !todo.complete};
         }
-        return todo; // Return the unchanged todo for todos that don't match the id
+        return todo;
       });
       return {
         ...state,
@@ -62,12 +60,12 @@ const todoReducer = (state = initialState, action: any) => {
     }
     case UPDATE_TODO: {
       const {id, task, priority} = action.payload;
-      // Map over todos and update the todo with the specified id
+
       const updatedTodos = state.todos.map((todo: any) => {
         if (todo.id === id) {
           return {...todo, task, priority};
         }
-        return todo; // Return unchanged todos
+        return todo;
       });
       return {
         ...state,
@@ -77,12 +75,12 @@ const todoReducer = (state = initialState, action: any) => {
 
     case ADD_COMMENT: {
       const {todoId, comment, id} = action.payload;
-      // Map over todos and update the todo with the specified id
+
       const updatedTodos = state.todos.map((todo: any) => {
         if (todo.id === todoId) {
           return {...todo, comments: [...todo.comments, {comment, id}]};
         }
-        return todo; // Return unchanged todos
+        return todo;
       });
       return {
         ...state,
@@ -92,16 +90,14 @@ const todoReducer = (state = initialState, action: any) => {
     case DELETE_COMMENT: {
       const {todoId, commentId} = action.payload;
 
-      // Map over todos and update the todo with the specified todoId
       const updatedTodos = state.todos.map((todo: any) => {
         if (todo.id === todoId) {
-          // Filter out the comment with the specified commentId
           const updatedComments = todo.comments.filter(
             (comment: any) => comment.id !== commentId,
           );
           return {...todo, comments: updatedComments};
         }
-        return todo; // Return unchanged todos
+        return todo;
       });
 
       console.log(updatedTodos);
